@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/02_Scripts/Lee/test.cs.meta
+guid: 396379c501adfda4ea0bea89bf6e4445
+========
+guid: 819af19ee9f3fba4fb264d36167fac68
+>>>>>>>> Dev:Assets/02_Scripts/Lee/PlayerScript.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
