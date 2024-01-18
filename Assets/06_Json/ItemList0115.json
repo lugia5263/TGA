@@ -1,0 +1,98 @@
+{
+  "Weapon": {
+    "1": {
+      "Name": "좋은 무기",
+      "Discription": "좋은 무기다",
+      "Str": 10
+    },
+    "2": {
+      "Name": "더 좋은무기",
+      "Discription": "더 좋은 무기의 힘이 깃들",
+      "Str": 20
+    },
+    "3": {
+      "Name": "캡짱 무기",
+      "Discription": "엄청 좋은 무기의 힘의",
+      "Str": 30
+    },
+    "4": {
+      "Name": "더짱 무기",
+      "Discription": "타락한 귀공의 어쩌구",
+      "Str": 40
+    },
+    "5": {
+      "Name": "개쩌는 무기",
+      "Discription": "사이코비 아비세타루!!",
+      "Str": 50
+    },
+    "6": {
+      "Name": "대충 무기",
+      "Discription": "\"소오 네에\"",
+      "Str": 60
+    },
+    "7": {
+      "Name": "이름짓기",
+      "Discription": "타케시마시타!!",
+      "Str": 70
+    },
+    "8": {
+      "Name": "귀챃다",
+      "Discription": "모치가이 아리마센!!",
+      "Str": 80
+    },
+    "9": {
+      "Name": "무슨무기냐",
+      "Discription": "무기의 최강이다",
+      "Str": 90
+    },
+    "10": {
+      "Name": "드래곤 슬레이어",
+      "Discription": "엄청난 무기다",
+      "Str": 100
+    },
+    "11": {
+      "Name": "지렸다",
+      "Discription": "투명드래곤의 무기다!!",
+      "Str": 110
+    }
+  },
+  "Food": {
+    "1": {
+      "Name": "30% 경험치 약",
+      "Discripttion": "경험치가 30 찬다",
+      "exp": 30,
+      "PlusAtk": 0
+    },
+    "2": {
+      "Name": "50% 경험치 약",
+      "Discripttion": "경험치가 50 찬다",
+      "exp": 50,
+      "PlusAtk": 0
+    },
+    "3": {
+      "Name": "100% 경험치 약",
+      "Discripttion": "경험치가 100 찬다",
+      "exp": 100,
+      "PlusAtk": 0
+    },
+    "4": {
+      "Name": "500% 경험치 약",
+      "Discripttion": "경험치가 500 찬다",
+      "exp": 500,
+      "PlusAtk": 0
+    },
+    "5": {
+      "Name": "1000% 경험치 약",
+      "Discripttion": "경험치가 1000 찬다",
+      "exp": 1000,
+      "PlusAtk": 0
+    },
+    "6": {
+      "Name": "3000% 경험치 약",
+      "Discripttion": "경험치가 3000 찬다",
+      "exp": 3000,
+      "PlusAtk": 20
+    }
+  },
+  "시트3": {}
+}
