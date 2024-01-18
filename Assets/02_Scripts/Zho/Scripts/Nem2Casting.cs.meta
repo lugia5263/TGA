@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/02_Scripts/Lee/test.cs.meta
-guid: ed82927fc9fa4b64d804b533320d38e2
-========
-guid: 819af19ee9f3fba4fb264d36167fac68
->>>>>>>> Dev:Assets/02_Scripts/Lee/PlayerScript.cs.meta
+guid: 591a6b670c6691a42b8c01a689d64f51
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
