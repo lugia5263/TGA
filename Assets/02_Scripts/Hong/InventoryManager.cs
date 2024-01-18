@@ -29,6 +29,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        rewardCanvas = GameObject.Find("RewardCanvas");
+        inventoryCanvas = GameObject.Find("InventoryCanvas");
         goldImage = GameObject.Find("item_gold").GetComponent<Image>();
         expImage = GameObject.Find("item_exp").GetComponent<Image>();
         materialImage = GameObject.Find("item_material").GetComponent<Image>();
