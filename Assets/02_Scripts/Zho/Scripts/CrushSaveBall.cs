@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class CrushSaveBall : MonoBehaviour
 {
-    public GameObject saveZone;
-    public StateManager sm;
-    
+    public GameObject SaveZone;
+    public StateManager Sm;
     void Start()
     {
-        sm = GetComponent<StateManager>();
+        Sm = GetComponent<StateManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(sm.hp <=0)
+        if(Sm.hp <=0)
         {
-            Instantiate(saveZone, transform.position, transform.rotation);
+            Instantiate(SaveZone, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

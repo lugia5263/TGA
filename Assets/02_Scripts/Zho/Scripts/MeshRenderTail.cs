@@ -27,7 +27,7 @@ public class MeshRenderTail : MonoBehaviour
 
     void Update()
     {
-        if(player.desh)
+        if(player.Desh)
             if (Input.GetKeyDown(KeyCode.Space))
             { 
                 isTrailActive = true;
@@ -68,7 +68,7 @@ public class MeshRenderTail : MonoBehaviour
         }
 
         isTrailActive = false;
-        player.desh = false;
+        player.Desh = false;
         player.isDeshInvincible = false;
     }
 

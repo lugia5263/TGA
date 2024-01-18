@@ -6,6 +6,10 @@ public class TPScontroller  : MonoBehaviour
 {
     public Transform players;
     public Transform CameraArm;
+
+    float DeshCool;
+    float CurDeshCool = 8f;
+
     CharacterController characterController;
     Player player;
     Animator animator;

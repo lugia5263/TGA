@@ -18,42 +18,43 @@ public class Boss : MonoBehaviour
     }
 
     [Header("Com")]
-    public BOSSSTATE bossState;
-    public Animator bossAnim;
-    public Transform targetPlayer;
-    public NavMeshAgent nvAgent;
+    public BOSSSTATE BossState;
+    public Animator BossAnim;
+    public Transform TargetPlayer;
+    public NavMeshAgent NvAgent;
     public CharacterController characterController;
     public Rigidbody rigidbody;
-    public BoxCollider neM1area;
+    public BoxCollider HitBox;
+    public BoxCollider NeM1area;
     private List<GameObject> gameObjects = new List<GameObject>();
     public GameObject[] prefabs;
     public Player player;
     StateManager stateManager;
-    public GameObject nem2Area;
-    public GameObject safeZoneBall;
+    public GameObject Nem2Area;
+    public GameObject SafeZoneBall;
 
     [Header("Stet")]
-    public float speed;
-    public float range;
+    public float Speed;
+    public float Range;
     
-    public float attackRange;
-    public int bossDamage;
+    public float AttackRange;
+    public int BossDamage;
 
     public bool isDeath;
 
     [Header("Tech")]
     public bool attacking;
     public float patternTime;
-    public float nem2PatternTime;
+    public float Nem2PatternTime;
 
     void Start()
     {
-        bossAnim = GetComponent<Animator>();
-        nvAgent = GetComponent<NavMeshAgent>();
-        targetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        BossAnim = GetComponent<Animator>();
+        NvAgent = GetComponent<NavMeshAgent>();
+        TargetPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
-        bossState = BOSSSTATE.IDLE;
+        BossState = BOSSSTATE.IDLE;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         stateManager = GetComponent<StateManager>();
     }
@@ -62,88 +63,88 @@ public class Boss : MonoBehaviour
     void Update()
     {
         patternTime += Time.deltaTime;
-        nem2PatternTime += Time.deltaTime;
+        Nem2PatternTime += Time.deltaTime;
         NemStart();
         Nem2Start();
         if (isDeath != true)
         {
             Die();
 
-            switch (bossState)
+            switch (BossState)
             {
                 case BOSSSTATE.IDLE:
-                    bossAnim.SetInteger("BOSSSTATE", 0);
-                    nvAgent.speed = 0;
+                    BossAnim.SetInteger("BOSSSTATE", 0);
+                    NvAgent.speed = 0;
 
-                    float dist = Vector3.Distance(targetPlayer.position, transform.position);
-                    if (dist < range)
+                    float dist = Vector3.Distance(TargetPlayer.position, transform.position);
+                    if (dist < Range)
                     {
-                        bossState = BOSSSTATE.MOVE;
+                        BossState = BOSSSTATE.MOVE;
                     }
                     else
                     {
-                        bossState = BOSSSTATE.IDLE;
+                        BossState = BOSSSTATE.IDLE;
                     }
 
 
                     break;
                 case BOSSSTATE.MOVE:
-                    bossAnim.SetInteger("BOSSSTATE", 1);
-                    nvAgent.speed = speed;
+                    BossAnim.SetInteger("BOSSSTATE", 1);
+                    NvAgent.speed = Speed;
 
-                    float distan = Vector3.Distance(targetPlayer.position, transform.position);
-                    if (distan < attackRange)
+                    float distan = Vector3.Distance(TargetPlayer.position, transform.position);
+                    if (distan < AttackRange)
                     {
-                        bossState = BOSSSTATE.ATTACK;
+                        BossState = BOSSSTATE.ATTACK;
                     }
                     else
                     {
-                        nvAgent.SetDestination(targetPlayer.position + new Vector3(0, 0, 2f)); 
+                        NvAgent.SetDestination(TargetPlayer.position + new Vector3(0, 0, 2.5f));
                     }
-                    if (distan > range)
+                    if (distan > Range)
                     {
-                        bossState = BOSSSTATE.IDLE;
+                        BossState = BOSSSTATE.IDLE;
                     }
 
 
                     break;
                 case BOSSSTATE.ATTACK:
-                    bossAnim.SetInteger("BOSSSTATE", 2);
-                    nvAgent.speed = 0;
+                    BossAnim.SetInteger("BOSSSTATE", 2);
+                    NvAgent.speed = 0;
                     attacking = true;
                     if (attacking == true)
                     {
-                        nvAgent.speed = 0;
+                        NvAgent.speed = 0;
                     }
                     else
                     {
-                        nvAgent.speed = speed;
+                        NvAgent.speed = Speed;
 
                     }
-                    float dists = Vector3.Distance(targetPlayer.position, transform.position);
-                    if (dists > attackRange)
+                    float dists = Vector3.Distance(TargetPlayer.position, transform.position);
+                    if (dists > AttackRange)
                     {
                         attacking = false;
-                        bossState = BOSSSTATE.MOVE;
+                        BossState = BOSSSTATE.MOVE;
                     }
                     else
                     {
-                        bossState = BOSSSTATE.ATTACK;
+                        BossState = BOSSSTATE.ATTACK;
                     }
 
 
                     break;
                 case BOSSSTATE.DOWN:
-                    bossAnim.SetInteger("BOSSSTATE", 3);
-                    nvAgent.speed = 0;
+                    BossAnim.SetInteger("BOSSSTATE", 3);
+                    NvAgent.speed = 0;
                     attacking = true;
                     if (attacking == true)
                     {
-                        nvAgent.speed = 0;
+                        NvAgent.speed = 0;
                     }
                     else
                     {
-                        nvAgent.speed = speed;
+                        NvAgent.speed = Speed;
 
                     }
                     StartCoroutine(StandUp());
@@ -155,7 +156,7 @@ public class Boss : MonoBehaviour
                     break;
 
                 case BOSSSTATE.NEM1:
-                    bossAnim.SetInteger("BOSSSTATE", 5);
+                    BossAnim.SetInteger("BOSSSTATE", 5);
                     if (patternTime > Random.Range(30, 39))
                     {
                         StartCoroutine(Nem1delay());
@@ -163,7 +164,7 @@ public class Boss : MonoBehaviour
                     }
                     break;
                 case BOSSSTATE.NEM2:
-                    bossAnim.SetInteger("BOSSSTATE", 5);
+                    BossAnim.SetInteger("BOSSSTATE", 5);
                     
                     Nem2();
                     
@@ -178,14 +179,14 @@ public class Boss : MonoBehaviour
     {
         if(stateManager.hp <=0)
         {
-            nvAgent.speed = 0;
+            NvAgent.speed = 0;
             isDeath = true;
             StartCoroutine(DeathDelay());
         }
     }
     IEnumerator DeathDelay()
     {
-        bossAnim.SetTrigger("Die");
+        BossAnim.SetTrigger("Die");
         yield return null;
     }
 
@@ -193,8 +194,8 @@ public class Boss : MonoBehaviour
     {
         if(other.gameObject.CompareTag("DownSkill"))
         {
-            nvAgent.speed = 0;
-            bossState = BOSSSTATE.DOWN;
+            NvAgent.speed = 0;
+            BossState = BOSSSTATE.DOWN;
         }
 
        
@@ -203,15 +204,15 @@ public class Boss : MonoBehaviour
     IEnumerator StandUp() 
     {
         yield return new WaitForSeconds(3f);
-        float distans = Vector3.Distance(targetPlayer.position, transform.position);
-        if (distans > attackRange)
+        float distans = Vector3.Distance(TargetPlayer.position, transform.position);
+        if (distans > AttackRange)
         {
             attacking = false;
-            bossState = BOSSSTATE.MOVE;
+            BossState = BOSSSTATE.MOVE;
         }
         else
         {
-            bossState = BOSSSTATE.ATTACK;
+            BossState = BOSSSTATE.ATTACK;
         }
     }
 
@@ -219,10 +220,10 @@ public class Boss : MonoBehaviour
     {
         Vector3 basePosition = transform.position;
 
-        Vector3 size = neM1area.size;
+        Vector3 size = NeM1area.size;
 
         float posX = basePosition.x + Random.Range(-size.x, size.x);
-        float posY = basePosition.y;
+        float posY = basePosition.y + Random.Range(0,size.y);
         float posZ = basePosition.z + Random.Range(-size.z, size.z);
 
         Vector3 spawnPos = new Vector3(posX, posY, posZ);
@@ -233,15 +234,15 @@ public class Boss : MonoBehaviour
     {
         if (patternTime >= 30)
         {
-            bossState = BOSSSTATE.NEM1;
+            BossState = BOSSSTATE.NEM1;
         }
     }
     void Nem2Start()
     {
-        if (nem2PatternTime >= 120f)
+        if (Nem2PatternTime >= 120f)
         {
             Nem2();
-            nem2PatternTime = 0;
+            Nem2PatternTime = 0;
         }
     }
     void Spawn()
@@ -256,14 +257,14 @@ public class Boss : MonoBehaviour
         GameObject instance = Instantiate(selectedPrefab, spawnPos, Quaternion.Euler(0, 0, 0));
         gameObjects.Add(instance);
 
-        bossState = BOSSSTATE.IDLE;
+        BossState = BOSSSTATE.IDLE;
     }
 
     private Vector3 SaveBallPosition()
     {
         Vector3 basePosition = transform.position;
 
-        Vector3 size = neM1area.size;
+        Vector3 size = NeM1area.size;
 
         float posX = basePosition.x + Random.Range(-size.x, size.x);
         float posY = basePosition.y + 1f;
@@ -277,8 +278,8 @@ public class Boss : MonoBehaviour
     {
         Vector3 spawnPos = SaveBallPosition();
 
-        Instantiate(safeZoneBall, spawnPos, Quaternion.Euler(0, 0, 0));
-        Instantiate(nem2Area, transform.position, transform.rotation);
+        Instantiate(SafeZoneBall, spawnPos, Quaternion.Euler(0, 0, 0));
+        Instantiate(Nem2Area, transform.position, transform.rotation);
        
     }
     IEnumerator Nem1delay()
