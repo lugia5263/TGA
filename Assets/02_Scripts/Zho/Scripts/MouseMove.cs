@@ -28,8 +28,8 @@ public class MouseMove :MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             animator.SetBool("isRun", true);
-            player.desh = Input.GetKeyDown(KeyCode.Space);
-            animator.SetBool("isDesh", player.desh);
+            player.Desh = Input.GetKeyDown(KeyCode.Space);
+            animator.SetBool("isDesh", player.Desh);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100f))

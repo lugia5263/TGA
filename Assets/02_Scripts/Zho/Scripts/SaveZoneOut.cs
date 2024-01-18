@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveZoneOut : MonoBehaviour
 {
-    public float destroyTime = 11f;
+    public float DestroyTime = 11f;
     public Player player;
     void Start()
     {
@@ -14,7 +14,7 @@ public class SaveZoneOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, destroyTime);
+        Destroy(gameObject, DestroyTime);
     }
 
     private void OnTriggerExit(Collider other)

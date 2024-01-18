@@ -9,7 +9,7 @@ public class Nem2Casting : MonoBehaviour
     public GameObject bombArea;
     public float castingTime;
 
-    public GameObject effect;
+    public GameObject Effect;
     float size = 1f;
     Vector3 maxSize;
     Vector3 originSize;
@@ -37,7 +37,7 @@ public class Nem2Casting : MonoBehaviour
             if (bombArea.transform.localScale.x >= size)
             {
                 GameObject effcet;
-                effcet = Instantiate(effect, transform.position, transform.rotation);
+                effcet = Instantiate(Effect, transform.position, transform.rotation);
                 //effcet.GetComponent<BossWeapons>().sm = GameObject.FindGameObjectWithTag("Boss").GetComponent<StateManager>();
                 castingTime = 0;
                 Destroy(gameObject, 0.1f);

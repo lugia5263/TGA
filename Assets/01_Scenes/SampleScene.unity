@@ -1842,7 +1842,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff90b4481c7964187d82e8452945a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: {fileID: 0}
   rotateSpeed: 500
+  roa: {x: 0, y: 0, z: 0}
 --- !u!1 &366470894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,12 +2272,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 282833537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &475904785 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 8990004758811257959, guid: c321bab3549502b48aa3abe664ec2c7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 416782187731744437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &568962218
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,7 +5873,7 @@ PrefabInstance:
     - target: {fileID: 620100140108010127, guid: c321bab3549502b48aa3abe664ec2c7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 620100140108010127, guid: c321bab3549502b48aa3abe664ec2c7f,
         type: 3}
@@ -5921,45 +5917,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
         type: 3}
-      propertyPath: range
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
-        type: 3}
       propertyPath: Nem2Area
       value: 
       objectReference: {fileID: 8662998407160962646, guid: b81dcfabb7a8bb74593860eaaff61d5e,
         type: 3}
     - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
         type: 3}
-      propertyPath: neM1area
-      value: 
-      objectReference: {fileID: 475904785}
-    - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
-        type: 3}
-      propertyPath: nem2Area
-      value: 
-      objectReference: {fileID: 8662998407160962646, guid: b81dcfabb7a8bb74593860eaaff61d5e,
-        type: 3}
-    - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
-        type: 3}
-      propertyPath: attackRange
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
-        type: 3}
       propertyPath: SafeZoneBall
-      value: 
-      objectReference: {fileID: 4060544494506954394, guid: e333b43aa630554419d6a4c41bbde5c8,
-        type: 3}
-    - target: {fileID: 3536487262141983852, guid: c321bab3549502b48aa3abe664ec2c7f,
-        type: 3}
-      propertyPath: safeZoneBall
       value: 
       objectReference: {fileID: 4060544494506954394, guid: e333b43aa630554419d6a4c41bbde5c8,
         type: 3}

@@ -18,13 +18,13 @@ public class CameraFollow : MonoBehaviour
     Coroutine timeCheckCoroutine;
     Coroutine resetCoroutine;
     Coroutine becomeTransparentCoroutine;
-   
+    public GameObject stage;
 
     private float xRotateMove, yRotateMove;
 
     public float rotateSpeed = 500.0f;
 
-    
+    public Vector3 roa;
 
     void Awake()
     {

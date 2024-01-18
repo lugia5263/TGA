@@ -11,9 +11,9 @@ public class Player : MonoBehaviour
     public float speed;
     public float moveSpeed = 8f;
     public float turn;
-    public bool desh;
-    float deshCool;
-    float curDeshCool = 8f;
+    public bool Desh;
+    float DeshCool;
+    float CurDeshCool = 8f;
     public bool isDeshInvincible;
 
     float hAxis;
@@ -24,11 +24,11 @@ public class Player : MonoBehaviour
     public CharacterController characterController;
     public Rigidbody rigid;
     public GameObject rigids;
-    public Transform cameraArm;
+    public Transform CameraArm;
     Animator animator;
     public TrailRenderer trailRenderer;
     public Weapons weapons;
-    private PlayableDirector pd;
+    private PlayableDirector PD;
     public TimelineAsset[] Ta;
     Boss boss;
     TPScontroller tps;
@@ -46,25 +46,25 @@ public class Player : MonoBehaviour
     public bool isDeath;
     public bool downing;
 
-    public GameObject skillOneEffect;
-    public GameObject skillQ;
-    public GameObject skillE;
-    public GameObject skillR;
-    public GameObject skillLoding;
+    public GameObject SkillOneEffect;
+    public GameObject SkillQ;
+    public GameObject SkillE;
+    public GameObject SkillR;
+    public GameObject SkillLoding;
     
-    public Transform targetPlayer;
+    public Transform TargetPlayer;
 
-    bool qisReady;
-    bool eisReady;
-    bool risReady;
+    bool QisReady;
+    bool EisReady;
+    bool RisReady;
 
-    public float qskillcool;
-    public float eskillcool;
-    public float rskillcool;
+    public float Qskillcool;
+    public float Eskillcool;
+    public float Rskillcool;
 
-    public float curQskillcool = 12f;
-    public float curEskillcool = 8f;
-    public float curRskillcool = 15f;
+    public float CurQskillcool = 12f;
+    public float CurEskillcool = 8f;
+    public float CurRskillcool = 15f;
 
     [SerializeField] private float rotCamXAxisSpeed = 500f;
     [SerializeField] private float rotCamYAxisSpeed = 3f;
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-        pd = GetComponent<PlayableDirector>();
+        PD = GetComponent<PlayableDirector>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
         tps = GetComponentInParent<TPScontroller>();
         stateManager = GetComponent<StateManager>();
@@ -104,13 +104,13 @@ public class Player : MonoBehaviour
     }
     void Deshs()
     {
-        deshCool += Time.deltaTime;
-        if(deshCool >= curDeshCool)
+        DeshCool += Time.deltaTime;
+        if(DeshCool >= CurDeshCool)
         {
-            desh = true;
-            deshCool = curDeshCool;
+            Desh = true;
+            DeshCool = CurDeshCool;
         }
-        if (desh)
+        if (Desh)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -180,56 +180,56 @@ public class Player : MonoBehaviour
     }
     void SkillOn()
     {
-        qskillcool += Time.deltaTime; 
+        Qskillcool += Time.deltaTime; 
 
-        if (qskillcool >= curQskillcool)
+        if (Qskillcool >= CurQskillcool)
         {
-            qskillcool = curQskillcool;
-            qisReady = true;
+            Qskillcool = CurQskillcool;
+            QisReady = true;
         }
             
-        eskillcool += Time.deltaTime;
+        Eskillcool += Time.deltaTime;
 
-        if (eskillcool >= curEskillcool)
+        if (Eskillcool >= CurEskillcool)
         {
-            eskillcool = curEskillcool;
-            eisReady = true;
+            Eskillcool = CurEskillcool;
+            EisReady = true;
         }
-        rskillcool += Time.deltaTime;
+        Rskillcool += Time.deltaTime;
 
-        if (rskillcool >= curRskillcool)
+        if (Rskillcool >= CurRskillcool)
         {
-            rskillcool = curRskillcool;
-            risReady = true;
+            Rskillcool = CurRskillcool;
+            RisReady = true;
         }
 
-        if(qisReady)
+        if(QisReady)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 animator.SetTrigger("SkillQ");
-                qskillcool = 0;
-                qisReady = false;
+                Qskillcool = 0;
+                QisReady = false;
             }
         }
 
-        if(eisReady)
+        if(EisReady)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 animator.SetTrigger("SkillE");
-                eskillcool = 0;
-                eisReady = false;
+                Eskillcool = 0;
+                EisReady = false;
             }
         }
         
-        if(risReady)
+        if(RisReady)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
                 animator.SetTrigger("SkillR");
-                rskillcool = 0;
-                risReady = false;
+                Rskillcool = 0;
+                RisReady = false;
             }
         }
     }
@@ -268,7 +268,7 @@ public class Player : MonoBehaviour
     {
         GameObject obj;
 
-        obj = Instantiate(skillOneEffect, targetPlayer.position, targetPlayer.rotation);
+        obj = Instantiate(SkillOneEffect, TargetPlayer.position, TargetPlayer.rotation);
 
         Destroy(obj, 2f);
     }
@@ -276,7 +276,7 @@ public class Player : MonoBehaviour
     {
         GameObject obj;
 
-        obj = Instantiate(skillQ, targetPlayer.position, targetPlayer.rotation);
+        obj = Instantiate(SkillQ, TargetPlayer.position, TargetPlayer.rotation);
         obj.GetComponent<WeaponsAttribute>().sm = transform.GetComponent<StateManager>();
         Destroy(obj, 2f);
     }
@@ -284,7 +284,7 @@ public class Player : MonoBehaviour
     {
         GameObject obj;
 
-        obj = Instantiate(skillE, targetPlayer.position, targetPlayer.rotation);
+        obj = Instantiate(SkillE, TargetPlayer.position, TargetPlayer.rotation);
         obj.GetComponent<WeaponsAttribute>().sm = transform.GetComponent<StateManager>();
         Destroy(obj, 2f);
     }
@@ -293,7 +293,7 @@ public class Player : MonoBehaviour
     {
         GameObject obj;
 
-        obj = Instantiate(skillR, targetPlayer.position, targetPlayer.rotation);
+        obj = Instantiate(SkillR, TargetPlayer.position, TargetPlayer.rotation);
         obj.GetComponent<WeaponsAttribute>().sm = transform.GetComponent<StateManager>();
         Destroy(obj, 2f);
 
@@ -303,7 +303,7 @@ public class Player : MonoBehaviour
     {
         GameObject obj;
 
-        obj = Instantiate(skillLoding, targetPlayer.position, targetPlayer.rotation);
+        obj = Instantiate(SkillLoding, TargetPlayer.position, TargetPlayer.rotation);
 
         Destroy(obj, 2f);
     }
