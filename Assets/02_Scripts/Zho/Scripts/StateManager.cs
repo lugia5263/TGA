@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class StateManager : MonoBehaviour
 {
-    //여기는 현재플레이어 스탯이다. 이걸 부착된 자식 객체의 클래스에서 가져온다.
-
 
     [Header("Stet")]
     // 플레이어의 스텟!!!!
@@ -26,7 +23,7 @@ public class StateManager : MonoBehaviour
     //public AttackController atkctrl;
 
 
-    private void Start()
+    void Start()
     {
         //atkctrl = GetComponentInChildren<AttackController>();
         //hudManager = gameObject.GetComponent<HUDManager>();
@@ -72,6 +69,4 @@ public class StateManager : MonoBehaviour
         DamagePopUpGenerator.current.CreatePopup(transform.position + randomness, hit.ToString(), popupColor);
         //hudManager.ChangeUserHUD();
     }
-
-    
 }
